@@ -1,6 +1,5 @@
 package com.nfc_card_project.nfc_card.domains.models;
 
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
