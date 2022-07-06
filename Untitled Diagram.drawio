@@ -1,13 +1,13 @@
-<mxfile host="app.diagrams.net" modified="2022-06-29T18:58:17.569Z" agent="5.0 (Windows)" etag="-MilDjTJaLPz6fJfAS-o" version="20.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-07-06T22:29:10.066Z" agent="5.0 (Windows)" etag="225BkDjcEW4ccu8VUAEp" version="20.0.4" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1673" dy="875" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2031" dy="1063" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="Ze94KI98oy2lEPaOC78q-29" value="Home" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontColor=#FFFFFF;fillColor=#212121;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="350" y="40" width="290" height="186" as="geometry" />
         </mxCell>
-        <mxCell id="Ze94KI98oy2lEPaOC78q-30" value="+ profile: Profile&#xa;+ monoCardEdit: MonoCardEdit&#xa;&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="Ze94KI98oy2lEPaOC78q-29" vertex="1">
+        <mxCell id="Ze94KI98oy2lEPaOC78q-30" value="+ profile: Profile&#xa;+ monoCard: MonoCard&#xa;&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="Ze94KI98oy2lEPaOC78q-29" vertex="1">
           <mxGeometry y="26" width="290" height="54" as="geometry" />
         </mxCell>
         <mxCell id="Ze94KI98oy2lEPaOC78q-31" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;fontColor=#FFFFFF;" parent="Ze94KI98oy2lEPaOC78q-29" vertex="1">
@@ -28,7 +28,7 @@
         <mxCell id="Ze94KI98oy2lEPaOC78q-46" value="+ privarPerfil(boolean verifica): boolean&#xa;+ mudarTema(boolean verifica): boolean&#xa;+ ativarRedirect(String url): boolean&#xa;+ alterarSenha(String alterar): String&#xa;+ alterarEmail(String alterar): String&#xa;+ alterarBio(String alterar): String&#xa;+alterarNome(String alterar): String&#xa;+ setBufferedImage(BufferedImage image): void&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#212121;" parent="Ze94KI98oy2lEPaOC78q-43" vertex="1">
           <mxGeometry y="138" width="310" height="132" as="geometry" />
         </mxCell>
-        <mxCell id="Ze94KI98oy2lEPaOC78q-47" value="MonoCardEdit" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontColor=#FFFFFF;fillColor=#212121;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="Ze94KI98oy2lEPaOC78q-47" value="MonoCard" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontColor=#FFFFFF;fillColor=#212121;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="90" y="330" width="289" height="180" as="geometry" />
         </mxCell>
         <mxCell id="Ze94KI98oy2lEPaOC78q-48" value="+ card: Card&#xa;+ corDoMono: String&#xa;+ nome: String&#xa;+ bio: String&#xa;+ img: BufferedImage&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#212121;" parent="Ze94KI98oy2lEPaOC78q-47" vertex="1">
