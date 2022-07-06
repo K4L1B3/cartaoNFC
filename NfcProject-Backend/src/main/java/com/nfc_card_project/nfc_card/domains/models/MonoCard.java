@@ -20,8 +20,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "MonoCardEdit")
-public class MonoCardEdit {
+@Table(name = "MonoCard")
+public class MonoCard {
     
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
