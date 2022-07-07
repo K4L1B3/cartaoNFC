@@ -32,7 +32,7 @@ public class CardController {
 
     //Criar card
     @PostMapping("/create")
-    public ResponseEntity<Card> save(@RequestBody @Valid Card card){
+    public ResponseEntity<Card> save(Card card){
         return ResponseEntity.status(HttpStatus.CREATED).body(cardService.save(card));
     }
 
@@ -54,7 +54,7 @@ public class CardController {
 
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Por favor informe o titulo do card para realizar a pesquisa");
  
-    }
+    } 
 
     //Atualizar card
     @PutMapping("/editCard/{id}")
@@ -64,10 +64,10 @@ public class CardController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente não encontrado");
         }    
     
-        var AtualizarCard = new Card();
-        BeanUtils.copyProperties(card, AtualizarCard);
+        var atualizarCard = new Card();
+        BeanUtils.copyProperties(card, atualizarCard);
         card.setId(cardOptional.get().getId());
-        return ResponseEntity.status(HttpStatus.OK).body(cardService.save(card));
+        return ResponseEntity.status(HttpStatus.OK).body(cardService.save(atualizarCard));
     }
 
     //Deletar card
@@ -81,15 +81,6 @@ public class CardController {
         cardService.delete(cardOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("Card deletado com sucesso!");
     }
-
-
-
-
-
-
-
-
-
 
 
 }

@@ -18,23 +18,24 @@ public class CardService {
     @Autowired
     CardRepository cardRepository;
 
-    public Card save(@Valid Card card) {
-        return null;
+    public Card save(Card card) {
+        return cardRepository.save(card);
     }
 
     public List<Card> findAll() {
-        return null;
+       return cardRepository.findAll();
     }
 
     public Optional<Card> findByTitulo(String titulo) {
-        return null;
+        return cardRepository.findByTitulo(titulo);
     }
 
     public Optional<Card> findById(Long id) {
-        return null;
+        return cardRepository.findById(id);
     }
 
     public void delete(Card card) {
+        cardRepository.delete(card);
     }
     
 }

@@ -26,7 +26,7 @@ public class PerfilController {
 
     //create profile
     @PostMapping("/create")
-    public ResponseEntity<Object> save(@RequestBody @Valid Perfil perfil){
+    public ResponseEntity<Object> save(Perfil perfil){
         if(perfilService.existsById(perfil.getId())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflito: Esse usuário ja foi cadastrado.");
         }
@@ -43,10 +43,10 @@ public class PerfilController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Perfil náo encontrado!");
         }
 
-        var AtualizarPerfil = new Perfil();
-        BeanUtils.copyProperties(perfil, AtualizarPerfil);
+        var atualizarPerfil = new Perfil();
+        BeanUtils.copyProperties(perfil, atualizarPerfil);
         perfil.setId(perfilOptional.get().getId());
-        return ResponseEntity.status(HttpStatus.OK).body(perfilService.save(perfil));
+        return ResponseEntity.status(HttpStatus.OK).body(perfilService.save(atualizarPerfil));
 
     }
 
