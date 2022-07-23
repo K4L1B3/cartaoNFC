@@ -26,7 +26,7 @@ public class PerfilController {
 
     //create profile
     @PostMapping("/create")
-    public ResponseEntity<Object> save(Perfil perfil){
+    public ResponseEntity<Object> save(@RequestBody Perfil perfil){
         if(perfilService.existsById(perfil.getId())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflito: Esse usuário ja foi cadastrado.");
         }

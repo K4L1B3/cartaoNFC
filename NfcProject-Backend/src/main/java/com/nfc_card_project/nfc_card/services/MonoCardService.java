@@ -1,5 +1,6 @@
 package com.nfc_card_project.nfc_card.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,10 @@ public class MonoCardService {
 
     public Optional<MonoCard> findById(Long id) {
         return monoCardRepository.findById(id);
+    }
+
+    public List<MonoCard> findAll() {
+        return monoCardRepository.findAll();
     }
 
 

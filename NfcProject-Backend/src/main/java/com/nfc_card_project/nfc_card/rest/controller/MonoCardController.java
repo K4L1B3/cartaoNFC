@@ -1,8 +1,8 @@
 package com.nfc_card_project.nfc_card.rest.controller;
 
+import java.util.List;
 import java.util.Optional;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,9 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nfc_card_project.nfc_card.domains.models.MonoCard;
@@ -27,13 +27,13 @@ public class MonoCardController {
 
     //Salvar/criar monocard
     @PostMapping("/create")
-    public ResponseEntity<MonoCard> save(MonoCard monoCard ){
+    public ResponseEntity<MonoCard> save(@RequestBody MonoCard monoCard ){
         return ResponseEntity.status(HttpStatus.CREATED).body(monoCardService.save(monoCard));
     }
 
 
     //Editar/atualizar monocard
-    @PostMapping("/editMonoCard")
+    @PutMapping("/editMonoCard/{id}")
     public ResponseEntity<Object> updateMonoCard(@PathVariable (value = "id") Long id, @RequestBody MonoCard monoCard) {
 
         Optional<MonoCard> monoCardOptional = monoCardService.findById(id);
@@ -46,16 +46,9 @@ public class MonoCardController {
     }
     
     
-    //Listar monocard por id
-    @GetMapping("/findById/{id}")
-    public ResponseEntity<Object> findByTitle(@RequestParam Long id){
-        
-        Optional<MonoCard> monoCardOptional = monoCardService.findById(id);
-
-        if(!monoCardOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("monoCard não existe");
-        }
-
-        return ResponseEntity.status(HttpStatus.OK).body(monoCardOptional.get());
+    //Listar todos os monocards
+    @GetMapping("/findAll")
+    public List<MonoCard> findAllCards() {
+        return monoCardService.findAll();
     }
 }

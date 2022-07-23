@@ -1,10 +1,12 @@
 package com.nfc_card_project.nfc_card.domains.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -35,4 +37,8 @@ public class Usuario {
 
     @Column (name = "adm")
     private boolean admin;
+ 
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuarioId")
+    private Perfil perfilId;
+
 }

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,5 +29,13 @@ public class Card {
     
     @Column
     private String link;
+
+    //Referenciando o ID do pai
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "monoCardId")
+    private MonoCard monoCardId;
+    
+
+    
 
 }

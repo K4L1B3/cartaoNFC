@@ -1,10 +1,13 @@
 package com.nfc_card_project.nfc_card.domains.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,15 +30,15 @@ public class Perfil {
 
     @Column
     private String bio;
-    
-    @Column
-    private String senha;
-    
-    @Column
-    private String email;
 
     @Column
     private boolean tornarPerfilPrivado;
 
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "perfilId")
+    private MonoCard monoCard;
 
+    @OneToOne
+    @JoinColumn(nullable = false, name = "usuarioId")
+    private Usuario usuarioId;
+    
 }

@@ -3,7 +3,6 @@ package com.nfc_card_project.nfc_card.services;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +35,14 @@ public class CardService {
 
     public void delete(Card card) {
         cardRepository.delete(card);
+    }
+
+    public boolean existsByTitulo(String titulo) {
+        return cardRepository.existsByTitulo(titulo);
+    }
+
+    public boolean existsByLink(String link) {
+        return cardRepository.existsByLink(link);
     }
     
 }

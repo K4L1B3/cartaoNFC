@@ -3,8 +3,7 @@ package com.nfc_card_project.nfc_card.rest.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nfc_card_project.nfc_card.domains.models.Card;
@@ -32,8 +30,14 @@ public class CardController {
 
     //Criar card
     @PostMapping("/create")
-    public ResponseEntity<Card> save(Card card){
-        return ResponseEntity.status(HttpStatus.CREATED).body(cardService.save(card));
+    public ResponseEntity<Object> save(@RequestBody Card card) {
+        
+        if (cardService.existsByTitulo(card.getTitulo()) && cardService.existsByLink(card.getLink())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflito: Esse card já existe");
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(cardService.save(card));            
+
+
     }
 
     //Listar todos os cards
@@ -44,20 +48,21 @@ public class CardController {
 
     //Pesquisar card por titulo
     @GetMapping("/findByTitle/{titulo}")
-    public ResponseEntity<Object> findByTitle(@RequestParam String titulo) {
+    public ResponseEntity<Object> findByTitle(@PathVariable (value = "titulo") String titulo) {
 
         
-        if(!(titulo == null)) {
-            Optional<Card> cardOptional = cardService.findByTitulo(titulo);
-            return ResponseEntity.status(HttpStatus.OK).body(cardOptional.get());
+        Optional<Card> cardOptional = cardService.findByTitulo(titulo);
+        
+        if(!cardOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Por favor informe o titulo do card para realizar a pesquisa");
         } 
-
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Por favor informe o titulo do card para realizar a pesquisa");
+        
+        return ResponseEntity.status(HttpStatus.OK).body(cardOptional.get());
  
     } 
 
     //Atualizar card
-    @PutMapping("/editCard/{id}")
+    @PutMapping("/edit/{id}")
     public ResponseEntity<Object> updateCard(@PathVariable (value = "id")Long id, @RequestBody Card card) {
         Optional<Card> cardOptional = cardService.findById(id);
         if(!cardOptional.isPresent()){

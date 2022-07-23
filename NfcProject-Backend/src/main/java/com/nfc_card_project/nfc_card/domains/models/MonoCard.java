@@ -3,12 +3,16 @@ package com.nfc_card_project.nfc_card.domains.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -27,8 +31,10 @@ public class MonoCard {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
+    //Referenciando o ID do filho
     @ElementCollection
-    private List<Card> card = new ArrayList<Card>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "monoCardId")
+    private List<Card> cardList = new ArrayList<Card>();
     
     @Column
     private String corDoMonoPrimaria;
@@ -37,10 +43,15 @@ public class MonoCard {
     private String corDoMonoSecundaria;
     
     @Column
-    private String corDoMonoTercearea;
+    private String corDoMonoTercearia;
     
     @Column
     private String corDoMonoQuaternaria;
+
+    @OneToOne
+    @JoinColumn(nullable =  false, name = "perfilId")
+    private Perfil perfilId;
+
 
     
 }
