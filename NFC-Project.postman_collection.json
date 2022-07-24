@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "87f4a2f5-7b0e-4f3e-83e4-c2b0f39c38eb",
+		"name": "NFC-Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20858709"
+	},
+	"item": [
+		{
+			"name": "Card-Endpoint",
+			"item": [
+				{
+					"name": "Criar/Salvar-Card",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"titulo\" : \"lol\",\r\n\"link\" : \"www.google.com\"   \r\n} \r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/editCard/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"editCard",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarTodos-Card",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/editCard/listAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"editCard",
+								"listAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarPorTitulo-Card",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/editCard/findByTitle/kik",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"editCard",
+								"findByTitle",
+								"kik"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar-Card",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n    \"id\": 1,\r\n    \"titulo\": \"kik\",\r\n    \"link\": \"cavalo.com.br\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/editCard/edit/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"editCard",
+								"edit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar-Card",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/editCard/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"editCard",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Monocard-Endpoint",
+			"item": [
+				{
+					"name": "Criar/Salvar-MonoCard",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"cardList\" : [\r\n    {\r\n        \"titulo\" : \"WhatsApp\",\r\n        \"link\" : \"www.web.whatsapp.com\"\r\n    }\r\n],\r\n\"corDoMonoPrimaria\"  : \"red\",\r\n\"corDoMonoSecundaria\" : \"blue\",\r\n\"corDoMonoTercearia\" : \"green\",\r\n\"corDoMonoQuaternaria\" : \"brown\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/monocard/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"monocard",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarTodos-Card",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/monocard/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"monocard",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar-Card",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"cardList\": [\r\n            {\r\n                \"id\": 2,\r\n                \"titulo\": \"WhatsApp\",\r\n                \"link\": \"www.web.whatsapp.com\"\r\n            }, \r\n\r\n            {\r\n                \"titulo\": \"Instagram\",\r\n                \"link\": \"www.instagram.com/k4l1b34\"\r\n            }\r\n        ],\r\n        \"corDoMonoPrimaria\": \"red\",\r\n        \"corDoMonoSecundaria\": \"blue\",\r\n        \"corDoMonoTercearia\": \"green\",\r\n        \"corDoMonoQuaternaria\": \"brown\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/monocard/editMonoCard/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"monocard",
+								"editMonoCard",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Perfil-EndPoint",
+			"item": [
+				{
+					"name": "Criar/Salvar-Perfil",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"cardList\" : [\r\n    {\r\n        \"titulo\" : \"WhatsApp\",\r\n        \"link\" : \"www.web.whatsapp.com\"\r\n    }\r\n],\r\n\"corDoMonoPrimaria\"  : \"red\",\r\n\"corDoMonoSecundaria\" : \"blue\",\r\n\"corDoMonoTercearia\" : \"green\",\r\n\"corDoMonoQuaternaria\" : \"brown\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/monocard/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"monocard",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarTodos-Perfil",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/myProfile/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"myProfile",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario-EndPoint",
+			"item": [
+				{
+					"name": "Criar/Salvar-Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"cardList\" : [\r\n    {\r\n        \"titulo\" : \"WhatsApp\",\r\n        \"link\" : \"www.web.whatsapp.com\"\r\n    }\r\n],\r\n\"corDoMonoPrimaria\"  : \"red\",\r\n\"corDoMonoSecundaria\" : \"blue\",\r\n\"corDoMonoTercearia\" : \"green\",\r\n\"corDoMonoQuaternaria\" : \"brown\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/monocard/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"monocard",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarTodos-Usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/usuarios/listAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"usuarios",
+								"listAll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,5 +1,6 @@
 package com.nfc_card_project.nfc_card.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -27,6 +28,10 @@ public class PerfilService {
 
     public Optional<Perfil> findById(Long id) {
         return perfilRepository.findById(id);
+    }
+
+    public List<Perfil> findAll() {
+        return perfilRepository.findAll();
     }
     
 }

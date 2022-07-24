@@ -7,5 +7,7 @@ import com.nfc_card_project.nfc_card.domains.models.Usuario;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
+
+    boolean existsByEmail(String email);
     
 }
