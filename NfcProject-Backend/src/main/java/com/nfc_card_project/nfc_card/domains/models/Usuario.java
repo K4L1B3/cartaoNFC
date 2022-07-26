@@ -6,9 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,25 +20,23 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "Usuario")
+@Table(name = "usuario")
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column
-    @NotEmpty(message = "O email é obrigatorio!")
     private String email;
 
     @Column
-    @NotEmpty(message = "A senha é obrigatoria!")
     private String password;
 
     @Column (name = "adm")
-    private boolean admin;
+    private boolean admin = false;
  
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "usuarioId")
-    private Perfil perfilId;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "perfil_id", referencedColumnName = "id")
+    private Perfil perfil;
 }

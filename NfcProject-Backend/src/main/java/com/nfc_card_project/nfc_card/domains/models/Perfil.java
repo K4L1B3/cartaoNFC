@@ -11,19 +11,21 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
-@Table(name = "Perfil")
+@Table(name = "perfil")
 public class Perfil {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;    
 
     @Column
     private String nome;
@@ -32,13 +34,21 @@ public class Perfil {
     private String bio;
 
     @Column
-    private boolean tornarPerfilPrivado;
+    private boolean tornarPerfilPrivado = false;
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "perfilId")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "monocardId", referencedColumnName = "id")
     private MonoCard monoCard;
 
-    @OneToOne
-    @JoinColumn(nullable = false, name = "usuarioId")
-    private Usuario usuarioId;
+    @OneToOne(mappedBy = "perfil")
+    private Usuario usuario;
     
 }
+// //Pai
+// @OneToOne(mappedBy = "address")
+// private User user;
+
+// //Filho - chave estrangeira
+// @OneToOne(cascade = CascadeType.ALL)
+// @JoinColumn(name = "address_id", referencedColumnName = "id")
+// private Address address;

@@ -17,11 +17,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Card")
+@Table(name = "card")
 public class Card {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -30,10 +30,10 @@ public class Card {
     @Column
     private String link;
 
-    //Referenciando o ID do pai
+    // Referenciando o ID do pai
     @ManyToOne
-    @JoinColumn(nullable = false, name = "monoCardId")
-    private MonoCard monoCardId;
+    @JoinColumn( name = "monoCard")
+    private MonoCard monoCard;
     
 
     

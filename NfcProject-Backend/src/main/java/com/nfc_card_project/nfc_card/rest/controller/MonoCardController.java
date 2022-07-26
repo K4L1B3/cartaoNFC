@@ -36,11 +36,11 @@ public class MonoCardController {
     @PutMapping("/editMonoCard/{id}")
     public ResponseEntity<Object> updateMonoCard(@PathVariable (value = "id") Long id, @RequestBody MonoCard monoCard) {
 
-        Optional<MonoCard> monoCardOptional = monoCardService.findById(id);
+        MonoCard monoCardOptional = monoCardService.findById(id);
 
         var atualizarMonoCard = new MonoCard();
         BeanUtils.copyProperties(monoCard, atualizarMonoCard);
-        monoCard.setId(monoCardOptional.get().getId());
+        monoCard.setId(monoCardOptional.getId());
         return ResponseEntity.status(HttpStatus.OK).body(monoCardService.save(atualizarMonoCard));
 
     }

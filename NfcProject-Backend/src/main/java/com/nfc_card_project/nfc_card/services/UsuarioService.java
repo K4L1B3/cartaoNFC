@@ -8,10 +8,15 @@ import org.springframework.stereotype.Service;
 
 import com.nfc_card_project.nfc_card.domains.models.Usuario;
 import com.nfc_card_project.nfc_card.domains.repositories.UsuarioRepository;
+import com.nfc_card_project.nfc_card.dto.UsuarioRequestBody;
+import com.nfc_card_project.nfc_card.mapper.UsuarioMapper;
 
 @Service
 public class UsuarioService {
     
+    @Autowired
+    PerfilService perfilService;
+
     @Autowired
     UsuarioRepository usuarioRepository;
 
@@ -23,7 +28,8 @@ public class UsuarioService {
         return usuarioRepository.existsByEmail(email);
     }
 
-    public Object save(Usuario usuario) {
+    public Usuario save(UsuarioRequestBody usuarioRequestBody) {
+        Usuario usuario = UsuarioMapper.toUsuario(usuarioRequestBody, perfilService);
         return usuarioRepository.save(usuario);
     }
 

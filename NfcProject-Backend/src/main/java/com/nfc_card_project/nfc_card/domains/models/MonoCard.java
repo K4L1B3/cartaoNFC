@@ -24,16 +24,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "MonoCard")
+@Table(name = "monocard")
 public class MonoCard {
     
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     //Referenciando o ID do filho
     @ElementCollection
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "monoCardId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "monoCard")
     private List<Card> cardList = new ArrayList<Card>();
     
     @Column
@@ -48,10 +48,6 @@ public class MonoCard {
     @Column
     private String corDoMonoQuaternaria;
 
-    @OneToOne
-    @JoinColumn(nullable =  false, name = "perfilId")
-    private Perfil perfilId;
-
-
-    
+    @OneToOne(mappedBy = "monoCard")
+    private Perfil perfil;
 }

@@ -20,9 +20,12 @@ public class MonoCardService {
         return monoCardRepository.save(monoCard);
     }
 
-    public Optional<MonoCard> findById(Long id) {
-        return monoCardRepository.findById(id);
+    public MonoCard findById(Long id) {
+        return monoCardRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Erro ao buscar id"));
     }
+    
+  
 
     public List<MonoCard> findAll() {
         return monoCardRepository.findAll();
