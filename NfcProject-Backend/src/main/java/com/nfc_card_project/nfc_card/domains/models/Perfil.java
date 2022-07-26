@@ -37,6 +37,7 @@ public class Perfil {
     private String bio;
 
     @Column
+    @Builder.Default
     private boolean tornarPerfilPrivado = false;
 
     @OneToOne(cascade = CascadeType.ALL)

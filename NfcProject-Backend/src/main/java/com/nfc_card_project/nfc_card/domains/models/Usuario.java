@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -36,7 +35,8 @@ public class Usuario {
     @Column
     private String password;
 
-    @Column (name = "adm")
+    @Column(name = "adm")
+    @Builder.Default
     private boolean admin = false;
  
     @OneToOne(cascade = CascadeType.ALL)
