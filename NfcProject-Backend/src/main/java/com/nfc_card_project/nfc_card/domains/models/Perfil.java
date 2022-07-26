@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "perfil")
+@Table(name = "Perfil")
 public class Perfil {
 
     @Id
@@ -40,12 +40,12 @@ public class Perfil {
     private boolean tornarPerfilPrivado = false;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "monocardId", referencedColumnName = "id")
-    @JsonManagedReference
+    @JoinColumn(name = "monoCard_id", referencedColumnName = "id")
+    @JsonManagedReference(value="monocard-reference")
     private MonoCard monoCard;
     
     @OneToOne(mappedBy = "perfil")
-    @JsonBackReference
+    @JsonBackReference(value="usuario-reference")
     private Usuario usuario;
     
 }

@@ -15,6 +15,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +28,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "monocard")
+@Table(name = "MonoCard")
+@JsonIdentityInfo(
+    generator = ObjectIdGenerators.PropertyGenerator.class,
+    property = "id",
+    scope = Long.class
+)
 public class MonoCard {
     
     @Id
@@ -34,6 +43,7 @@ public class MonoCard {
     //Referenciando o ID do filho
     @ElementCollection
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "monoCard")
+    @JsonManagedReference(value="card-reference")
     private List<Card> cardList = new ArrayList<Card>();
     
     @Column
@@ -49,6 +59,6 @@ public class MonoCard {
     private String corDoMonoQuaternaria;
 
     @OneToOne(mappedBy = "monoCard")
-    @JsonBackReference
+    @JsonBackReference(value="monocard-reference")
     private Perfil perfil;
 }

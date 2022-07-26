@@ -9,6 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "card")
+@Table(name = "Card")
 public class Card {
 
     @Id
@@ -32,10 +37,8 @@ public class Card {
 
     // Referenciando o ID do pai
     @ManyToOne
-    @JoinColumn( name = "monoCard")
+    @JoinColumn(name = "monocard_id", referencedColumnName = "id")
+    @JsonBackReference(value="card-reference")
     private MonoCard monoCard;
-    
-
-    
 
 }

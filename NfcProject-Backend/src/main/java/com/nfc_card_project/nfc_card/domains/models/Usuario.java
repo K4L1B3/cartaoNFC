@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "usuario")
+@Table(name = "Usuario")
 public class Usuario {
 
     @Id
@@ -38,5 +41,6 @@ public class Usuario {
  
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "perfil_id", referencedColumnName = "id")
+    @JsonManagedReference(value="usuario-reference")
     private Perfil perfil;
 }
