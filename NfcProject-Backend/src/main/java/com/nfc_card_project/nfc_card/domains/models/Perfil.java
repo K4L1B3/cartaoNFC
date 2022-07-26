@@ -10,6 +10,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,9 +41,11 @@ public class Perfil {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "monocardId", referencedColumnName = "id")
+    @JsonManagedReference
     private MonoCard monoCard;
-
+    
     @OneToOne(mappedBy = "perfil")
+    @JsonBackReference
     private Usuario usuario;
     
 }

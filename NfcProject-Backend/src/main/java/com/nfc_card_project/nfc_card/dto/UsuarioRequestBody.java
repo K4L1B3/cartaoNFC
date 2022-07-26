@@ -1,8 +1,4 @@
 package com.nfc_card_project.nfc_card.dto;
-
-import com.nfc_card_project.nfc_card.domains.models.Perfil;
-
-import lombok.Builder;
 import lombok.Data;
 
 @Data

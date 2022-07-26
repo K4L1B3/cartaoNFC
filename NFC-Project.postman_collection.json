@@ -226,7 +226,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"cardList\" : [\r\n    {\r\n        \"titulo\" : \"WhatsApp\",\r\n        \"link\" : \"www.web.whatsapp.com\"\r\n    }\r\n],\r\n\"corDoMonoPrimaria\"  : \"red\",\r\n\"corDoMonoSecundaria\" : \"blue\",\r\n\"corDoMonoTercearia\" : \"green\",\r\n\"corDoMonoQuaternaria\" : \"brown\"\r\n}",
+							"raw": "\r\n\r\n {\r\n            \"nome\" : \"Luiz\",\r\n            \"bio\" : \"eu sou o milior\",\r\n            \"monoCardId\" : 1\r\n }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -234,15 +234,44 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/monocard/create",
+							"raw": "http://localhost:8081/myProfile/create",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8081",
 							"path": [
-								"monocard",
+								"myProfile",
 								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar/Salvar-Perfil Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/myProfile/editProfile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"myProfile",
+								"editProfile"
 							]
 						}
 					},
@@ -280,7 +309,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"cardList\" : [\r\n    {\r\n        \"titulo\" : \"WhatsApp\",\r\n        \"link\" : \"www.web.whatsapp.com\"\r\n    }\r\n],\r\n\"corDoMonoPrimaria\"  : \"red\",\r\n\"corDoMonoSecundaria\" : \"blue\",\r\n\"corDoMonoTercearia\" : \"green\",\r\n\"corDoMonoQuaternaria\" : \"brown\"\r\n}",
+							"raw": "\r\n{\r\n\r\n    \"email\" : \"luizhlimagomes28@gmail.com\",\r\n    \"password\" : \"62434AASD@\",\r\n    \"perfilId\" : 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -288,14 +317,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/monocard/create",
+							"raw": "http://localhost:8081/usuario/create",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8081",
 							"path": [
-								"monocard",
+								"usuario",
 								"create"
 							]
 						}
@@ -308,14 +337,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/usuarios/listAll",
+							"raw": "http://localhost:8081/usuario/listAll",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8081",
 							"path": [
-								"usuarios",
+								"usuario",
 								"listAll"
 							]
 						}
