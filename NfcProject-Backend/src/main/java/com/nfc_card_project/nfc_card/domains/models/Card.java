@@ -12,12 +12,16 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "Card")
 public class Card {
@@ -37,5 +41,7 @@ public class Card {
     @JoinColumn(name = "monocard_id", referencedColumnName = "id")
     @JsonBackReference(value="card-reference")
     private MonoCard monoCard;
+
+
 
 }

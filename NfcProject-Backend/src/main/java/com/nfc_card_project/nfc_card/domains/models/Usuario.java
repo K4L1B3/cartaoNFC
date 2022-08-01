@@ -1,5 +1,7 @@
 package com.nfc_card_project.nfc_card.domains.models;
 
+
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,4 +45,9 @@ public class Usuario {
     @JoinColumn(name = "perfil_id", referencedColumnName = "id")
     @JsonManagedReference(value="usuario-reference")
     private Perfil perfil;
+
+    public boolean isPresent() {
+        return false;
+    }
+
 }

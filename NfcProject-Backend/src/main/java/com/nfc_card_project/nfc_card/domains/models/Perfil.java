@@ -48,6 +48,10 @@ public class Perfil {
     @OneToOne(mappedBy = "perfil")
     @JsonBackReference(value="usuario-reference")
     private Usuario usuario;
+
+    public boolean isPresent() {
+        return false;
+    }
     
 }
 // //Pai

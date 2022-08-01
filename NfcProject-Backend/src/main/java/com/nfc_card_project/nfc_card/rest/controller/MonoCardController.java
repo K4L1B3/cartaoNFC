@@ -33,7 +33,7 @@ public class MonoCardController {
 
     //Editar/atualizar monocard
     @PutMapping("/editMonoCard/{id}")
-    public ResponseEntity<Object> updateMonoCard(@PathVariable (value = "id") Long id, @RequestBody MonoCard monoCard) {
+    public ResponseEntity<MonoCard> updateMonoCard(@PathVariable (value = "id") Long id, @RequestBody MonoCard monoCard) {
 
         MonoCard monoCardOptional = monoCardService.findById(id);
 

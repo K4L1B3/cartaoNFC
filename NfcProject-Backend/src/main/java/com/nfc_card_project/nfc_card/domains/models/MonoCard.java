@@ -20,12 +20,14 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "MonoCard")
 @JsonIdentityInfo(
@@ -40,6 +42,7 @@ public class MonoCard {
     private Long id;
 
     //Referenciando o ID do filho
+    @Builder.Default
     @ElementCollection
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "monoCard")
     @JsonManagedReference(value="card-reference")
