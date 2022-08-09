@@ -1,3 +1,4 @@
+
 package com.nfc_card_project.nfc_card.mapper;
 
 import com.nfc_card_project.nfc_card.domains.models.Perfil;
@@ -18,3 +19,9 @@ public class PerfilEditMapper {
     }
 
 }
+
+
+
+//     @Mapping(expression = "java(monocard.getMonocardId())", target = "moncardId")
+    //     // @Mapping(source = "name", target = "nome") apenas serve para fazer mapeamento dos campos que não são iguais
+    // @Mapper(componentModel = "spring", imports = MonoCardService.class)
